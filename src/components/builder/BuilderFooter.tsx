@@ -1,9 +1,9 @@
-import React from 'react'
-
 const BuilderFooter = () => {
   return (
-    <div>BuilderFooter</div>
-  )
-}
+    <footer>
+      {/* Next Step Button */}
+    </footer>
+  );
+};
 
-export default BuilderFooter
+export default BuilderFooter;

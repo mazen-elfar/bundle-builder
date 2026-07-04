@@ -1,5 +1,7 @@
+import Accordion from "../accordion/Accordion";
+
 const Step = () => {
-  return <div>Step</div>;
+  return <Accordion />;
 };
 
 export default Step;
