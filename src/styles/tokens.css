@@ -1,0 +1,89 @@
+:root {
+  /* ===========================
+     COLORS
+  =========================== */
+
+  --color-page-bg: #f7f8fa;
+
+  --color-surface: #ffffff;
+
+  --color-primary: #4e2fd2;
+
+  --color-primary-hover: #4025b7;
+
+  --color-text-primary: #1f1f1f;
+
+  --color-text-secondary: #6f7882;
+
+  --color-text-light: #a8b2bd;
+
+  --color-border: #ced6de;
+
+  --color-divider: #e8edf2;
+
+  /* ===========================
+     TYPOGRAPHY
+  =========================== */
+
+  --font-primary: "Gilroy", sans-serif;
+
+  --fs-step-label: 12px;
+
+  --fs-title: 22px;
+
+  --fs-accordion-title: 18px;
+
+  --fs-body: 14px;
+
+  --fs-button: 16px;
+
+  --fw-regular: 400;
+
+  --fw-medium: 500;
+
+  --fw-semibold: 600;
+
+  --fw-bold: 700;
+
+  /* ===========================
+     SPACING
+  =========================== */
+
+  --space-4: 4px;
+
+  --space-8: 8px;
+
+  --space-12: 12px;
+
+  --space-16: 16px;
+
+  --space-20: 20px;
+
+  --space-24: 24px;
+
+  --space-32: 32px;
+
+  /* ===========================
+     RADIUS
+  =========================== */
+
+  --radius-sm: 4px;
+
+  --radius-md: 6px;
+
+  --radius-lg: 10px;
+
+  /* ===========================
+     BORDER
+  =========================== */
+
+  --border-width: 1px;
+
+  /* ===========================
+     TRANSITION
+  =========================== */
+
+  --transition-fast: 150ms ease;
+
+  --transition-normal: 250ms ease;
+}

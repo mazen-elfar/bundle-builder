@@ -1,0 +1,73 @@
+/* ===========================
+   RESET
+=========================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* ===========================
+   ROOT
+=========================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  font-family: var(--font-primary);
+
+  background: var(--color-page-bg);
+
+  color: var(--color-text-primary);
+
+  line-height: 1.5;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===========================
+   ELEMENTS
+=========================== */
+
+img,
+picture {
+  display: block;
+
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+
+  border: none;
+
+  background: transparent;
+}
+
+a {
+  text-decoration: none;
+
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}

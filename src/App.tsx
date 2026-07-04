@@ -1,9 +1,9 @@
 // App.tsx
 
-import Home from "./pages/Home";
+import BundleBuilderPage from "./pages/BundleBuilderPage";
 
 function App() {
-  return <Home />;
+  return <BundleBuilderPage />;
 }
 
 export default App;
