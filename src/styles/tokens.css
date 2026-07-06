@@ -1,89 +1,96 @@
 :root {
-  /* ===========================
+  /* ==================================================
      COLORS
-  =========================== */
-
+  ================================================== */
+  
   --color-page-bg: #f7f8fa;
-
   --color-surface: #ffffff;
+  --color-card-bg: #eef4ff;
 
   --color-primary: #4e2fd2;
-
   --color-primary-hover: #4025b7;
 
   --color-text-primary: #1f1f1f;
-
   --color-text-secondary: #6f7882;
-
+  --color-text-muted: #575757;
   --color-text-light: #a8b2bd;
 
+  --color-price-old: #d8392b;
+  --color-price-current: #575757;
+
   --color-border: #ced6de;
-
   --color-divider: #e8edf2;
-
-  /* ===========================
+  --color-success: #0AA288;
+  --color-success-soft: #1DF0BB0A;
+  --color-review-bg: #EDF4FF;
+  --color-builder-bg: #EEF4FF;
+  /* ==================================================
      TYPOGRAPHY
-  =========================== */
+  ================================================== */
 
-  --font-primary: "Gilroy", sans-serif;
+   --font-primary: "Gilroy", sans-serif;
 
-  --fs-step-label: 12px;
-
+  --fs-caption: 10px;
+  --fs-small: 12px;
+  --fs-body: 14px;
+  --fs-subtitle: 16px;
+  --fs-accordion-title: 18px;
   --fs-title: 22px;
 
-  --fs-accordion-title: 18px;
-
-  --fs-body: 14px;
-
-  --fs-button: 16px;
-
   --fw-regular: 400;
-
   --fw-medium: 500;
-
   --fw-semibold: 600;
-
   --fw-bold: 700;
 
-  /* ===========================
+  --lh-tight: 100%;
+  --lh-body: 130%;
+
+  --tracking-normal: 0.6px;
+  --tracking-step: 1.6px;
+
+  /* ==================================================
      SPACING
-  =========================== */
+  ================================================== */
 
   --space-4: 4px;
-
+  --space-6: 6px;
   --space-8: 8px;
-
+  --space-10: 10px;
+  --space-11: 11px;
   --space-12: 12px;
-
+  --space-15: 15px;
   --space-16: 16px;
-
   --space-20: 20px;
-
   --space-24: 24px;
-
   --space-32: 32px;
 
-  /* ===========================
+  /* ==================================================
      RADIUS
-  =========================== */
+  ================================================== */
 
+  --radius-xs: 2px;
   --radius-sm: 4px;
-
+  --radius-image: 5px;
   --radius-md: 6px;
-
   --radius-lg: 10px;
 
-  /* ===========================
+  /* ==================================================
      BORDER
-  =========================== */
+  ================================================== */
 
+  --border-width-thin: .5px;
   --border-width: 1px;
+  --border-width-thick: 2px;
 
-  /* ===========================
-     TRANSITION
-  =========================== */
+  /* ==================================================
+     TRANSITIONS
+  ================================================== */
 
   --transition-fast: 150ms ease;
-
   --transition-normal: 250ms ease;
+
+  /* Quantity Stepper */
+--color-stepper-bg: #F0F4F7;
+--color-stepper-border: #E6EBF0;
+--color-stepper-text: #0B0D10;
 }

@@ -1,9 +1,47 @@
-const ProductPrice = () => {
-  return (
-    <section>
-      <span>$35.98</span>
+type ProductPriceProps = {
+  price: number;
+  compareAtPrice?: number | null;
+};
 
-      <span>$27.98</span>
+const ProductPrice = ({
+  price,
+  compareAtPrice,
+}: ProductPriceProps) => {
+  return (
+    <section
+      className="
+        flex
+        flex-col
+        items-end
+        justify-center
+        leading-none
+      "
+    >
+      {compareAtPrice && (
+        <span
+          className="
+            text-[16px]
+            font-normal
+            tracking-[0.6px]
+            text-[var(--color-price-old)]
+            line-through
+          "
+        >
+          ${compareAtPrice.toFixed(2)}
+        </span>
+      )}
+
+      <span
+        className="
+          text-[16px]
+          font-[Gilroy]
+          font-[500]
+          tracking-[0.6px]
+          text-[var(--color-text-muted)]
+        "
+      >
+        ${price.toFixed(2)}
+      </span>
     </section>
   );
 };

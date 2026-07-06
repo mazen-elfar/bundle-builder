@@ -3,11 +3,23 @@ import BuilderFooter from "../builder/BuilderFooter";
 
 const AccordionContent = () => {
   return (
-    <div>
-        <ProductGrid />
-        <BuilderFooter />
-    </div>
-  )
-}
+    <section
+      className="
+        flex
+        w-full
+        flex-col
+        gap-[15px]
+        bg-[#EEF4FF]
+        px-[15px]
+        pt-[20px]
+        pb-[20px]
+      "
+    >
+      <ProductGrid />
 
-export default AccordionContent
+      <BuilderFooter />
+    </section>
+  );
+};
+
+export default AccordionContent;

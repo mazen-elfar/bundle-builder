@@ -1,19 +1,32 @@
 type BadgeProps = {
-  label: string;
-  color?: 'purple' | 'blue';
+  text?: string | null;
 };
 
-const Badge = ({ label, color = 'purple' }: BadgeProps) => {
-  const colors = {
-    purple: 'bg-[#6B4EFF] text-white',
-    blue: 'bg-[#3B82F6] text-white',
-  };
+const Badge = ({ text }: BadgeProps) => {
+  if (!text) return null;
 
   return (
     <span
-      className={`inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold leading-none ${colors[color]}`}
+      className="
+        inline-flex
+        h-[19px]
+        shrink-0
+        select-none
+        whitespace-nowrap
+        items-center
+        justify-center
+        rounded-[10px]
+        bg-[#4E2FD2]
+        px-[6px]
+        py-[2px]
+        text-[12px]
+        leading-none
+        text-white
+        font-[Gilroy]
+        font-[500]
+      "
     >
-      {label}
+      {text}
     </span>
   );
 };

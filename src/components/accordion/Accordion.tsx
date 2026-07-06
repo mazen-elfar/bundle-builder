@@ -20,7 +20,8 @@ const Accordion = ({
         icon={icon}
         isOpen={isOpen}
       />
-      <AccordionContent />
+
+      {isOpen && <AccordionContent />}
     </section>
   );
 };

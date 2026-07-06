@@ -54,28 +54,49 @@ const AccordionHeader = ({
         {stepLabel}
       </span>
 
-      {/* Header Content */}
-      <div className="flex items-center justify-between h-[67px] px-[15px] py-[20px] gap-[3px] border-y-[0.5px] border-[#1F1F1F]">
-        {/* Left Section */}
-        <div className="flex items-center gap-[8px] flex-1 min-w-0">
-          {/* Icon */}
-          <div className="w-[26px] h-[27px] flex items-center justify-center">
+      {/* Header */}
+      <div
+        className={`
+    flex
+    h-[67px]
+    items-center
+    justify-between
+    gap-[3px]
+    px-[15px]
+    py-[20px]
+    border-[#1F1F1F]
+    ${isOpen
+            ? "border-t-[0.5px] bg-[var(--color-builder-bg)]"
+            : "border-y-[0.5px] bg-[var(--color-surface)]"
+          }
+  `}
+      >
+        {/* Left */}
+        <div className="flex flex-1 items-center gap-[8px] min-w-0">
+          <div className="flex h-[27px] w-[26px] items-center justify-center">
             {icon}
           </div>
 
-          <h2 className="text-[22px] leading-[100%] tracking-normal text-[#0B0D10] font-normal">
+          <h2
+            className="
+    font-[Gilroy]
+    font-[600]
+    text-[22px]
+    leading-[100%]
+    text-[#0B0D10]
+  "
+          >
             {title}
           </h2>
         </div>
 
-        {/* Right Section */}
-        <div className="flex items-center gap-[4px] shrink-0">
-          <span className="text-[14px] leading-[16px] text-[#4E2FD2] text-center font-normal">
+        {/* Right */}
+        <div className="flex shrink-0 items-center gap-[4px]">
+          <span className="text-[14px] font-normal leading-[16px] text-[#4E2FD2]">
             {selectedText}
           </span>
 
-          {/* Chevron */}
-          <div className="w-[10px] h-[7px] flex items-center justify-center">
+          <div className="flex h-[7px] w-[10px] items-center justify-center">
             <Chevron />
           </div>
         </div>

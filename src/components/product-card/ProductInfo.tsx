@@ -1,39 +1,62 @@
-interface ProductInfoProps {
+type ProductInfoProps = {
   name: string;
   description: string;
-}
+  learnMore: string;
+};
 
-const ProductInfo = ({ name, description }: ProductInfoProps) => {
+const ProductInfo = ({
+  name,
+  description,
+  learnMore,
+}: ProductInfoProps) => {
   return (
-    <section className="flex flex-col gap-[4px]">
-      <h3
-        style={{
-          fontSize: "var(--fs-body)",
-          fontWeight: "var(--fw-semibold)",
-          color: "var(--color-text-primary)",
-          lineHeight: "1.3",
-        }}
-      >
+    <section
+      className="
+        flex
+        flex-col
+        gap-[8px]
+      "
+    >
+      {/* Product Title */}
+     <h3
+  className="
+    font-[Gilroy]
+    font-[600]
+    text-[16px]
+    leading-[100%]
+    tracking-[0.6px]
+    text-[var(--color-text-primary)]
+  "
+    > 
         {name}
       </h3>
 
+      {/* Product Description */}
       <p
-        style={{
-          fontSize: "var(--fs-step-label)",
-          fontWeight: "var(--fw-regular)",
-          color: "var(--color-text-secondary)",
-          lineHeight: "1.4",
-        }}
-      >
+  className="
+    font-[Gilroy]
+    font-[500]
+    text-[12px]
+    leading-[130%]
+    tracking-[0.6px]
+    text-[var(--color-text-muted)]
+  "
+    >
         {description}{" "}
         <a
-          href="#"
-          style={{
-            fontSize: "var(--fs-step-label)",
-            fontWeight: "var(--fw-regular)",
-            color: "var(--color-primary)",
-            textDecoration: "underline",
-          }}
+          href={learnMore}
+          aria-label={`Learn more about ${name}`}
+          className="
+            text-[var(--color-primary)]
+            underline
+            decoration-solid
+            underline-offset-[2px]
+            transition-colors
+            duration-150
+            hover:text-[var(--color-primary-hover)]
+            font-[Gilroy]
+            font-[500]
+          "
         >
           Learn More
         </a>
