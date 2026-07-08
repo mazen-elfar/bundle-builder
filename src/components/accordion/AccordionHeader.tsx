@@ -1,6 +1,11 @@
-import type { StepData } from "../../types/steps";
-
-type AccordionHeaderProps = Omit<StepData, "id">;
+type AccordionHeaderProps = {
+  stepLabel: string;
+  title: string;
+  selectedText: string;
+  icon: React.ReactNode | null;
+  isOpen: boolean;
+  onToggle: () => void;
+};
 
 const ChevronUp = () => (
   <svg
@@ -44,6 +49,7 @@ const AccordionHeader = ({
   selectedText,
   icon,
   isOpen,
+  onToggle,
 }: AccordionHeaderProps) => {
   const Chevron = isOpen ? ChevronUp : ChevronDown;
 
@@ -55,21 +61,25 @@ const AccordionHeader = ({
       </span>
 
       {/* Header */}
-      <div
+      <button
+        type="button"
+        onClick={onToggle}
         className={`
-    flex
-    h-[67px]
-    items-center
-    justify-between
-    gap-[3px]
-    px-[15px]
-    py-[20px]
-    border-[#1F1F1F]
-    ${isOpen
+          flex
+          h-[67px]
+          w-full
+          items-center
+          justify-between
+          gap-[3px]
+          px-[15px]
+          py-[20px]
+          border-[#1F1F1F]
+          cursor-pointer
+          ${isOpen
             ? "border-t-[0.5px] bg-[var(--color-builder-bg)]"
             : "border-y-[0.5px] bg-[var(--color-surface)]"
           }
-  `}
+        `}
       >
         {/* Left */}
         <div className="flex flex-1 items-center gap-[8px] min-w-0">
@@ -79,12 +89,12 @@ const AccordionHeader = ({
 
           <h2
             className="
-    font-[Gilroy]
-    font-[600]
-    text-[22px]
-    leading-[100%]
-    text-[#0B0D10]
-  "
+              font-[Gilroy]
+              font-[600]
+              text-[22px]
+              leading-[100%]
+              text-[#0B0D10]
+            "
           >
             {title}
           </h2>
@@ -100,7 +110,7 @@ const AccordionHeader = ({
             <Chevron />
           </div>
         </div>
-      </div>
+      </button>
     </header>
   );
 };

@@ -5,12 +5,41 @@ import ProductInfo from "./ProductInfo";
 import ProductPrice from "./ProductPrice";
 import ProductVariants from "../product-variants/ProductVariants";
 import QuantityStepper from "../quantity-stepper/QuantityStepper";
+import { useBundleContext } from "../../context/BundleContext";
 
 type ProductCardProps = {
   product: Product;
 };
 
 const ProductCard = ({ product }: ProductCardProps) => {
+  const { getProductSelection, isProductSelected, dispatch } =
+    useBundleContext();
+
+  const selection = getProductSelection(product.id);
+  const selected = isProductSelected(product.id);
+
+  const hasVariants = product.variants.length > 0;
+  const currentVariantId = selection?.selectedVariantId;
+  const currentQuantity = currentVariantId
+    ? (selection?.variantQuantities[currentVariantId] ?? 0)
+    : 0;
+
+  const handleIncrease = () => {
+    if (!currentVariantId) return;
+    dispatch({
+      type: "INCREMENT_VARIANT",
+      payload: { productId: product.id, variantId: currentVariantId },
+    });
+  };
+
+  const handleDecrease = () => {
+    if (!currentVariantId) return;
+    dispatch({
+      type: "DECREMENT_VARIANT",
+      payload: { productId: product.id, variantId: currentVariantId },
+    });
+  };
+
   return (
     <article
       className={`
@@ -22,7 +51,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         p-[11px]
         bg-[var(--color-surface)]
         ${
-          product.isSelected
+          selected
             ? "border-[var(--color-primary)]"
             : "border-[var(--color-divider)]"
         }
@@ -82,10 +111,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
             learnMore={product.learnMore}
           />
 
-          <ProductVariants
-            variants={product.variants}
-            selectedVariant={product.selectedVariant}
-          />
+          {hasVariants && (
+            <ProductVariants
+              productId={product.id}
+              variants={product.variants}
+              selectedVariant={currentVariantId}
+            />
+          )}
         </div>
 
         {/* Footer */}
@@ -96,7 +128,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
             justify-between
           "
         >
-          <QuantityStepper quantity={product.quantity} />
+          <QuantityStepper
+            quantity={currentQuantity}
+            onIncrease={handleIncrease}
+            onDecrease={handleDecrease}
+          />
 
           <ProductPrice
             price={product.price}

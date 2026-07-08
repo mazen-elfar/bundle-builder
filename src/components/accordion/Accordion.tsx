@@ -1,16 +1,30 @@
 import AccordionHeader from "./AccordionHeader";
 import AccordionContent from "./AccordionContent";
-import type { StepData } from "../../types/steps";
+import { useBundleContext } from "../../context/BundleContext";
 
-type AccordionProps = Omit<StepData, "id">;
+type AccordionProps = {
+  stepId: number;
+  stepLabel: string;
+  title: string;
+  selectedText: string;
+  icon: React.ReactNode | null;
+  isOpen: boolean;
+  category: string;
+  isLast: boolean;
+};
 
 const Accordion = ({
+  stepId,
   stepLabel,
   title,
   selectedText,
   icon,
   isOpen,
+  category,
+  isLast,
 }: AccordionProps) => {
+  const { toggleStep } = useBundleContext();
+
   return (
     <section aria-label="Bundle step">
       <AccordionHeader
@@ -19,9 +33,10 @@ const Accordion = ({
         selectedText={selectedText}
         icon={icon}
         isOpen={isOpen}
+        onToggle={() => toggleStep(stepId)}
       />
 
-      {isOpen && <AccordionContent />}
+      {isOpen && <AccordionContent category={category} isLast={isLast} />}
     </section>
   );
 };

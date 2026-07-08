@@ -1,6 +1,23 @@
 import Button from "../ui/Button";
+import { useBundleContext } from "../../context/BundleContext";
+import { steps } from "../../data/steps";
 
-const BuilderFooter = () => {
+type BuilderFooterProps = {
+  isLast: boolean;
+  category: string;
+};
+
+const BuilderFooter = ({ isLast, category }: BuilderFooterProps) => {
+  const { nextStep, state } = useBundleContext();
+  const currentStepIndex = steps.findIndex((s) => s.id === state.currentStep);
+  const nextStepData = steps[currentStepIndex + 1];
+
+  if (isLast) return null;
+
+  const label = nextStepData
+    ? `Next: ${nextStepData.title.replace("Choose your ", "").replace("Add ", "")}`
+    : "Next";
+
   return (
     <footer
       className="
@@ -10,8 +27,8 @@ const BuilderFooter = () => {
         justify-center
       "
     >
-      <Button>
-        Next: Choose your plan
+      <Button onClick={nextStep}>
+        {label}
       </Button>
     </footer>
   );

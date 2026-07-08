@@ -1,9 +1,12 @@
-// App.tsx
-
+import { BundleProvider } from "./context/BundleContext";
 import BundleBuilderPage from "./pages/BundleBuilderPage";
 
 function App() {
-  return <BundleBuilderPage />;
+  return (
+    <BundleProvider>
+      <BundleBuilderPage />
+    </BundleProvider>
+  );
 }
 
 export default App;

@@ -3,16 +3,19 @@ import type { Variant } from "../../types/product";
 type VariantOptionProps = {
   variant: Variant;
   selected: boolean;
+  onSelect: () => void;
 };
 
 const VariantOption = ({
   variant,
   selected,
+  onSelect,
 }: VariantOptionProps) => {
   return (
     <button
       type="button"
       aria-pressed={selected}
+      onClick={onSelect}
       className={`
         flex
         items-center
@@ -26,6 +29,7 @@ const VariantOption = ({
         border-[0.5px]
         transition-colors
         overflow-hidden
+        cursor-pointer
         ${
           selected
             ? "border-[var(--color-success)] bg-[var(--color-success-soft)]"

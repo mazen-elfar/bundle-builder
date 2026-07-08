@@ -1,26 +1,30 @@
-import ReviewQuantityStepper from "../review-quantity-stepper/ReviewQuantityStepper";
+const TruckIcon = () => (
+  <svg
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect width="32" height="32" rx="5" fill="#EEF4FF" />
+    <path
+      d="M8 12H20V21H8V12Z"
+      stroke="#0AA288"
+      strokeWidth="1.5"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M20 15H23L25 18V21H20V15Z"
+      stroke="#0AA288"
+      strokeWidth="1.5"
+      strokeLinejoin="round"
+    />
+    <circle cx="11" cy="22.5" r="1.5" stroke="#0AA288" strokeWidth="1.5" />
+    <circle cx="22" cy="22.5" r="1.5" stroke="#0AA288" strokeWidth="1.5" />
+  </svg>
+);
 
-type ReviewItemProps = {
-  productId: string;
-  variantId: string;
-  image: string;
-  title: string;
-  quantity: number;
-  price: number;
-  compareAtPrice?: number | null;
-  suffix?: string;
-};
-
-const ReviewItem = ({
-  productId,
-  variantId,
-  image,
-  title,
-  quantity,
-  price,
-  compareAtPrice,
-  suffix,
-}: ReviewItemProps) => {
+const FastShippingRow = () => {
   return (
     <article
       className="
@@ -42,7 +46,7 @@ const ReviewItem = ({
           gap-[12px]
         "
       >
-        {/* Image */}
+        {/* Icon */}
         <figure
           className="
             h-[41px]
@@ -52,17 +56,7 @@ const ReviewItem = ({
             rounded-[5px]
           "
         >
-          <img
-            src={image}
-            alt={title}
-            draggable={false}
-            className="
-              h-full
-              w-full
-              object-contain
-              select-none
-            "
-          />
+          <TruckIcon />
         </figure>
 
         {/* Content */}
@@ -72,8 +66,6 @@ const ReviewItem = ({
             h-[41px]
             flex-1
             items-center
-            justify-between
-            gap-[12px]
           "
         >
           <h4
@@ -86,14 +78,8 @@ const ReviewItem = ({
               text-[#0B0D10]
             "
           >
-            {title}
+            Fast Shipping
           </h4>
-
-          <ReviewQuantityStepper
-            productId={productId}
-            variantId={variantId}
-            quantity={quantity}
-          />
         </div>
       </div>
 
@@ -109,23 +95,20 @@ const ReviewItem = ({
           justify-between
         "
       >
-        {compareAtPrice != null && (
-          <span
-            className="
-              whitespace-nowrap
-              font-[Gilroy]
-              font-[500]
-              text-[14px]
-              leading-[16px]
-              tracking-[0.5%]
-              text-[#6F7882]
-              line-through
-            "
-          >
-            ${compareAtPrice.toFixed(2)}
-            {suffix}
-          </span>
-        )}
+        <span
+          className="
+            whitespace-nowrap
+            font-[Gilroy]
+            font-[500]
+            text-[14px]
+            leading-[16px]
+            tracking-[0.5%]
+            text-[#6F7882]
+            line-through
+          "
+        >
+          $5.99
+        </span>
 
         <span
           className="
@@ -135,15 +118,14 @@ const ReviewItem = ({
             text-[14px]
             leading-[16px]
             tracking-[0.5%]
-            text-[var(--color-primary)]
+            text-[var(--color-success)]
           "
         >
-          ${price.toFixed(2)}
-          {suffix}
+          FREE
         </span>
       </div>
     </article>
   );
 };
 
-export default ReviewItem;
+export default FastShippingRow;

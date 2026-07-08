@@ -1,2 +1,2 @@
-export type { Product, Variant } from './product';
-export type { BundleState, BundleAction, BundleSelection } from './bundle';
+export type { Product, Variant, ProductCategory } from './product';
+export type { BundleState, BundleAction, ProductSelection, VariantSelection } from './bundle';

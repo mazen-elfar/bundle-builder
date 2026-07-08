@@ -1,7 +1,12 @@
 import ProductGrid from "../builder/ProductGrid";
 import BuilderFooter from "../builder/BuilderFooter";
 
-const AccordionContent = () => {
+type AccordionContentProps = {
+  category: string;
+  isLast: boolean;
+};
+
+const AccordionContent = ({ category, isLast }: AccordionContentProps) => {
   return (
     <section
       className="
@@ -15,9 +20,9 @@ const AccordionContent = () => {
         pb-[20px]
       "
     >
-      <ProductGrid />
+      <ProductGrid category={category} />
 
-      <BuilderFooter />
+      <BuilderFooter isLast={isLast} category={category} />
     </section>
   );
 };

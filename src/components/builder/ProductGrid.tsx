@@ -1,7 +1,14 @@
 import ProductCard from "../product-card/ProductCard";
-import { products } from "../../data/products";
+import { useBundleContext } from "../../context/BundleContext";
 
-const ProductGrid = () => {
+type ProductGridProps = {
+  category: string;
+};
+
+const ProductGrid = ({ category }: ProductGridProps) => {
+  const { getProductsByCategory } = useBundleContext();
+  const categoryProducts = getProductsByCategory(category);
+
   return (
     <section
       className="
@@ -11,49 +18,46 @@ const ProductGrid = () => {
         gap-[15px]
       "
     >
-      {/* Four Cards Container */}
+      {/* Top Row */}
       <div
         className="
-          w-full
           flex
-          flex-col
           gap-[15px]
         "
       >
-        {/* Top Row */}
-        <div
-          className="
-            flex
-            gap-[15px]
-          "
-        >
-          <ProductCard product={products[0]} />
-          <ProductCard product={products[1]} />
-        </div>
-
-        {/* Bottom Row */}
-        <div
-          className="
-            flex
-            gap-[15px]
-          "
-        >
-          <ProductCard product={products[2]} />
-          <ProductCard product={products[3]} />
-        </div>
+        {categoryProducts.slice(0, 2).map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </div>
 
-      {/* Last Card */}
-     {/* Last Card */}
-<div
-  className="
-    flex
-    justify-center
-    w-full
-  "
->
-  <ProductCard product={products[4]} />
-</div>
+      {/* Middle Row (if 3+ products) */}
+      {categoryProducts.length > 2 && (
+        <div
+          className="
+            flex
+            gap-[15px]
+          "
+        >
+          {categoryProducts.slice(2, 4).map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      )}
+
+      {/* Last Row (if 5+ products, centered) */}
+      {categoryProducts.length > 4 && (
+        <div
+          className="
+            flex
+            justify-center
+            w-full
+          "
+        >
+          {categoryProducts.slice(4, 5).map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      )}
     </section>
   );
 };

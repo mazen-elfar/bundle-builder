@@ -1,29 +1,31 @@
-import type { BundleSelection } from '../types';
+import { products } from "../data/products";
+import type { BundleState } from "../types";
 
-/**
- * Calculate the total price of all bundle selections.
- */
-export const calculateTotal = (
-  selections: Record<string, BundleSelection>,
-  priceMap: Record<string, number>
-): number => {
-  return Object.values(selections).reduce((total, sel) => {
-    const price = priceMap[sel.productId] ?? 0;
-    return total + price * sel.quantity;
-  }, 0);
+export const calculateSubtotal = (state: BundleState): number => {
+  let total = 0;
+  for (const [productId, sel] of Object.entries(state.selections)) {
+    const product = products.find((p) => p.id === productId);
+    if (!product) continue;
+    for (const qty of Object.values(sel.variantQuantities)) {
+      total += product.price * qty;
+    }
+  }
+  return total;
 };
 
-/**
- * Calculate total savings vs. compare-at prices.
- */
-export const calculateSavings = (
-  selections: Record<string, BundleSelection>,
-  priceMap: Record<string, number>,
-  comparePriceMap: Record<string, number>
-): number => {
-  return Object.values(selections).reduce((savings, sel) => {
-    const compare = comparePriceMap[sel.productId] ?? 0;
-    const price = priceMap[sel.productId] ?? 0;
-    return savings + (compare - price) * sel.quantity;
-  }, 0);
+export const calculateCompareAtTotal = (state: BundleState): number => {
+  let total = 0;
+  for (const [productId, sel] of Object.entries(state.selections)) {
+    const product = products.find((p) => p.id === productId);
+    if (!product) continue;
+    const compare = product.compareAtPrice ?? product.price;
+    for (const qty of Object.values(sel.variantQuantities)) {
+      total += compare * qty;
+    }
+  }
+  return total;
+};
+
+export const calculateSavings = (state: BundleState): number => {
+  return calculateCompareAtTotal(state) - calculateSubtotal(state);
 };
