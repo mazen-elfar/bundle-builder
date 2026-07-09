@@ -25,6 +25,8 @@ const ProductPrice = ({
             tracking-[0.6px]
             text-[var(--color-price-old)]
             line-through
+
+            max-sm:text-[12px]
           "
         >
           ${compareAtPrice.toFixed(2)}
@@ -38,6 +40,8 @@ const ProductPrice = ({
           font-[500]
           tracking-[0.6px]
           text-[var(--color-text-muted)]
+
+          max-sm:text-[12px]
         "
       >
         ${price.toFixed(2)}

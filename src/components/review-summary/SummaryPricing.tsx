@@ -17,6 +17,8 @@ const SummaryPricing = () => {
         justify-between
         w-full
         h-[78px]
+
+        max-sm:h-[60px]
       "
     >
       {/* Guarantee Image */}
@@ -29,6 +31,9 @@ const SummaryPricing = () => {
           h-[78px]
           object-contain
           select-none
+
+          max-sm:w-[60px]
+          max-sm:h-[60px]
         "
       />
 

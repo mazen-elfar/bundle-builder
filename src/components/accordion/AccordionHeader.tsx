@@ -75,6 +75,9 @@ const AccordionHeader = ({
           py-[20px]
           border-[#1F1F1F]
           cursor-pointer
+
+          max-sm:h-[60px]
+          max-sm:py-[12px]
           ${isOpen
             ? "border-t-[0.5px] bg-[var(--color-builder-bg)]"
             : "border-y-[0.5px] bg-[var(--color-surface)]"
@@ -94,6 +97,8 @@ const AccordionHeader = ({
               text-[22px]
               leading-[100%]
               text-[#0B0D10]
+
+              max-sm:text-[18px]
             "
           >
             {title}
@@ -102,7 +107,7 @@ const AccordionHeader = ({
 
         {/* Right */}
         <div className="flex shrink-0 items-center gap-[4px]">
-          <span className="text-[14px] font-normal leading-[16px] text-[#4E2FD2]">
+          <span className="text-[14px] font-normal leading-[16px] text-[#4E2FD2] max-sm:text-[12px]">
             {selectedText}
           </span>
 

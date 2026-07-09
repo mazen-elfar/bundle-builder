@@ -18,11 +18,15 @@ const AccordionContent = ({ category, isLast }: AccordionContentProps) => {
         px-[15px]
         pt-[20px]
         pb-[20px]
+
+        max-sm:px-[20px]
+        max-sm:pt-[15px]
+        max-sm:pb-[15px]
       "
     >
       <ProductGrid category={category} />
 
-      <BuilderFooter isLast={isLast} category={category} />
+      <BuilderFooter isLast={isLast} />
     </section>
   );
 };

@@ -33,12 +33,17 @@ const ProductVariants = ({
         gap-[6px]
         w-[205px]
         h-[26px]
+
+        max-sm:w-auto
+        max-sm:h-[22px]
+        max-sm:gap-[4px]
       "
     >
       {variants.map((variant) => (
         <VariantOption
           key={variant.id}
-          variant={variant}
+          imageUrl={variant.image}
+          name={variant.name}
           selected={variant.id === selectedVariant}
           onSelect={() => handleSelect(variant.id)}
         />

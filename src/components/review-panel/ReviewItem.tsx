@@ -30,6 +30,10 @@ const ReviewItem = ({
         items-start
         justify-between
         gap-[16px]
+
+        max-sm:w-[350px]
+        max-sm:h-[36px]
+        max-sm:gap-[8px]
       "
     >
       {/* Left */}
@@ -40,6 +44,11 @@ const ReviewItem = ({
           w-[293px]
           items-start
           gap-[12px]
+
+          max-sm:h-[36px]
+          max-sm:w-auto
+          max-sm:flex-1
+          max-sm:gap-[8px]
         "
       >
         {/* Image */}
@@ -50,6 +59,9 @@ const ReviewItem = ({
             shrink-0
             overflow-hidden
             rounded-[5px]
+
+            max-sm:h-[36px]
+            max-sm:w-[36px]
           "
         >
           <img
@@ -74,6 +86,9 @@ const ReviewItem = ({
             items-center
             justify-between
             gap-[12px]
+
+            max-sm:h-[36px]
+            max-sm:gap-[6px]
           "
         >
           <h4
@@ -84,6 +99,8 @@ const ReviewItem = ({
               leading-[16px]
               tracking-[0.5%]
               text-[#0B0D10]
+
+              max-sm:text-[12px]
             "
           >
             {title}
@@ -107,6 +124,9 @@ const ReviewItem = ({
           flex-col
           items-end
           justify-between
+
+          max-sm:h-[36px]
+          max-sm:w-[50px]
         "
       >
         {compareAtPrice != null && (
@@ -120,6 +140,8 @@ const ReviewItem = ({
               tracking-[0.5%]
               text-[#6F7882]
               line-through
+
+              max-sm:text-[12px]
             "
           >
             ${compareAtPrice.toFixed(2)}
@@ -136,6 +158,8 @@ const ReviewItem = ({
             leading-[16px]
             tracking-[0.5%]
             text-[var(--color-primary)]
+
+            max-sm:text-[12px]
           "
         >
           ${price.toFixed(2)}

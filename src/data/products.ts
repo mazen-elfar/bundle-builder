@@ -6,9 +6,9 @@ import wyzeFloodlightV2 from "../assets/images/96d92fa4f08e0bdd9fa6fd7b1e59231ec
 import wyzeDuoCamDoorbell from "../assets/images/0d7c4e5400ad8bef25d0ac786f415794250cefd5.png";
 import wyzeBatteryCamPro from "../assets/images/25ced552047f1e871354f9620f3a60c5948b3b1a.png";
 
-import v4White from "../assets/img-selector/wyze-cam-v4/variant-white.png";
-import v4Grey from "../assets/img-selector/wyze-cam-v4/variant-grey.png";
-import v4Black from "../assets/img-selector/wyze-cam-v4/variant-black.png";
+import v4Grey from "../assets/img-selector/wyze-cam-v4/variant-white.png";
+import v4Black from "../assets/img-selector/wyze-cam-v4/variant-grey.png";
+import v4White from "../assets/img-selector/wyze-cam-v4/variant-black.png";
 
 import panWhite from "../assets/img-selector/wyze-cam-pan-v3/variant-white.png";
 import panBlack from "../assets/img-selector/wyze-cam-pan-v3/variant-black.png";

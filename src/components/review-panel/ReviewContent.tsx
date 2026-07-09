@@ -24,6 +24,12 @@ const ReviewContent = () => {
         px-[20px]
         pt-[20px]
         pb-[31px]
+
+        max-sm:w-[390px]
+        max-sm:bg-transparent
+        max-sm:px-[20px]
+        max-sm:pt-[15px]
+        max-sm:pb-[20px]
       "
     >
       {/* Intro */}
@@ -42,6 +48,8 @@ const ReviewContent = () => {
             leading-[100%]
             tracking-[0.6px]
             text-[var(--color-text-primary)]
+
+            max-sm:text-[18px]
           "
         >
           Your security system
@@ -55,6 +63,8 @@ const ReviewContent = () => {
             leading-[130%]
             tracking-[0.6px]
             text-[var(--color-text-muted)]
+
+            max-sm:text-[12px]
           "
         >
           Review your personalized protection system designed to keep what
@@ -70,7 +80,7 @@ const ReviewContent = () => {
               key={`${item.product.id}-${item.variantId}`}
               productId={item.product.id}
               variantId={item.variantId}
-              image={item.product.image}
+              image={item.variantImage}
               title={`${item.product.name}${item.product.variants.length > 0 ? ` - ${item.variantName}` : ""}`}
               quantity={item.quantity}
               price={item.product.price}

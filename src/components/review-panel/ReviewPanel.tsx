@@ -11,6 +11,12 @@ const ReviewPanel = () => {
         flex-col
         gap-[5px]
         rounded-[10px]
+
+        max-sm:w-[390px]
+        max-sm:h-auto
+        max-sm:rounded-none
+        max-sm:bg-[#EDF4FF]
+        max-sm:pt-[15px]
       "
     >
       <ReviewHeader />

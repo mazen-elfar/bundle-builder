@@ -29,6 +29,8 @@ const CheckoutButton = ({
         disabled:cursor-not-allowed
         disabled:opacity-50
         cursor-pointer
+
+        max-sm:w-[350px]
       "
     >
       <span

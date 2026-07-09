@@ -18,6 +18,8 @@ const ReviewHeader = () => {
           leading-[100%]
           tracking-[1.6px]
           text-[#484848]
+
+          max-sm:text-[10px]
         "
       >
         Review

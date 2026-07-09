@@ -26,6 +26,8 @@ const ProductInfo = ({
     leading-[100%]
     tracking-[0.6px]
     text-[var(--color-text-primary)]
+
+    max-sm:text-[13px]
   "
     > 
         {name}
@@ -40,6 +42,8 @@ const ProductInfo = ({
     leading-[130%]
     tracking-[0.6px]
     text-[var(--color-text-muted)]
+
+    max-sm:text-[10px]
   "
     >
         {description}{" "}

@@ -17,6 +17,8 @@ const SaveForLater = () => {
         duration-200
         hover:opacity-70
         cursor-pointer
+
+        max-sm:w-[350px]
       "
     >
       <span className="text-save-for-later">

@@ -34,6 +34,10 @@ const FastShippingRow = () => {
         items-start
         justify-between
         gap-[16px]
+
+        max-sm:w-[350px]
+        max-sm:h-[36px]
+        max-sm:gap-[8px]
       "
     >
       {/* Left */}
@@ -44,6 +48,11 @@ const FastShippingRow = () => {
           w-[293px]
           items-start
           gap-[12px]
+
+          max-sm:h-[36px]
+          max-sm:w-auto
+          max-sm:flex-1
+          max-sm:gap-[8px]
         "
       >
         {/* Icon */}
@@ -54,6 +63,9 @@ const FastShippingRow = () => {
             shrink-0
             overflow-hidden
             rounded-[5px]
+
+            max-sm:h-[36px]
+            max-sm:w-[36px]
           "
         >
           <TruckIcon />
@@ -66,6 +78,8 @@ const FastShippingRow = () => {
             h-[41px]
             flex-1
             items-center
+
+            max-sm:h-[36px]
           "
         >
           <h4
@@ -76,6 +90,8 @@ const FastShippingRow = () => {
               leading-[16px]
               tracking-[0.5%]
               text-[#0B0D10]
+
+              max-sm:text-[12px]
             "
           >
             Fast Shipping
@@ -93,6 +109,9 @@ const FastShippingRow = () => {
           flex-col
           items-end
           justify-between
+
+          max-sm:h-[36px]
+          max-sm:w-[50px]
         "
       >
         <span
@@ -105,6 +124,8 @@ const FastShippingRow = () => {
             tracking-[0.5%]
             text-[#6F7882]
             line-through
+
+            max-sm:text-[12px]
           "
         >
           $5.99
@@ -119,6 +140,8 @@ const FastShippingRow = () => {
             leading-[16px]
             tracking-[0.5%]
             text-[var(--color-success)]
+
+            max-sm:text-[12px]
           "
         >
           FREE

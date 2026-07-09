@@ -6,7 +6,7 @@ const Builder = () => {
   const { state, getSelectedCount } = useBundleContext();
 
   return (
-    <section aria-label="Bundle Builder" className="w-[768px] flex flex-col gap-[13px]">
+    <section aria-label="Bundle Builder" className="w-[768px] flex flex-col gap-[13px] max-sm:w-[390px] max-sm:gap-[20px]">
       {steps.map((step) => {
         const count = getSelectedCount(step.category);
         const selectedText =

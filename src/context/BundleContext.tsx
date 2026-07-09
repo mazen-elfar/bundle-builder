@@ -31,6 +31,7 @@ export interface ReviewItemData {
   product: Product;
   variantId: string;
   variantName: string;
+  variantImage: string;
   quantity: number;
 }
 
@@ -126,10 +127,13 @@ export function BundleProvider({ children }: { children: React.ReactNode }) {
               const variant = product.variants.find((v) => v.id === variantId);
               const variantName =
                 variant?.name ?? product.name;
+              const variantImage =
+                variant?.image ?? product.image;
               items.push({
                 product,
                 variantId,
                 variantName,
+                variantImage,
                 quantity: qty,
               });
             }

@@ -16,6 +16,9 @@ const ProductGrid = ({ category }: ProductGridProps) => {
         flex
         flex-col
         gap-[15px]
+
+        max-sm:w-[350px]
+        max-sm:gap-[12px]
       "
     >
       {/* Top Row */}
@@ -23,6 +26,9 @@ const ProductGrid = ({ category }: ProductGridProps) => {
         className="
           flex
           gap-[15px]
+
+          max-sm:flex-col
+          max-sm:gap-[12px]
         "
       >
         {categoryProducts.slice(0, 2).map((product) => (
@@ -36,6 +42,9 @@ const ProductGrid = ({ category }: ProductGridProps) => {
           className="
             flex
             gap-[15px]
+
+            max-sm:flex-col
+            max-sm:gap-[12px]
           "
         >
           {categoryProducts.slice(2, 4).map((product) => (
@@ -51,6 +60,8 @@ const ProductGrid = ({ category }: ProductGridProps) => {
             flex
             justify-center
             w-full
+
+            max-sm:justify-start
           "
         >
           {categoryProducts.slice(4, 5).map((product) => (

@@ -4,10 +4,9 @@ import { steps } from "../../data/steps";
 
 type BuilderFooterProps = {
   isLast: boolean;
-  category: string;
 };
 
-const BuilderFooter = ({ isLast, category }: BuilderFooterProps) => {
+const BuilderFooter = ({ isLast }: BuilderFooterProps) => {
   const { nextStep, state } = useBundleContext();
   const currentStepIndex = steps.findIndex((s) => s.id === state.currentStep);
   const nextStepData = steps[currentStepIndex + 1];
@@ -25,6 +24,8 @@ const BuilderFooter = ({ isLast, category }: BuilderFooterProps) => {
         flex
         w-full
         justify-center
+
+        max-sm:mt-[12px]
       "
     >
       <Button onClick={nextStep}>

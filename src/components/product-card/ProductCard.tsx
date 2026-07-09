@@ -20,6 +20,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   const hasVariants = product.variants.length > 0;
   const currentVariantId = selection?.selectedVariantId;
+  const currentVariant = hasVariants
+    ? product.variants.find((v) => v.id === currentVariantId)
+    : undefined;
+  const displayImage = currentVariant?.image ?? product.image;
   const currentQuantity = currentVariantId
     ? (selection?.variantQuantities[currentVariantId] ?? 0)
     : 0;
@@ -50,6 +54,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
         border-2
         p-[11px]
         bg-[var(--color-surface)]
+
+        max-sm:w-[350px]
+        max-sm:gap-[12px]
+        max-sm:p-[8px]
         ${
           selected
             ? "border-[var(--color-primary)]"
@@ -67,6 +75,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
           shrink-0
           items-center
           justify-center
+
+          max-sm:h-[90px]
+          max-sm:w-[70px]
         "
       >
         {product.badge && (
@@ -76,7 +87,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         )}
 
         <img
-          src={product.image}
+          src={displayImage}
           alt={product.name}
           draggable={false}
           className="
@@ -95,6 +106,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
           w-[219.5px]
           flex-col
           justify-between
+
+          max-sm:w-auto
+          max-sm:flex-1
         "
       >
         {/* Top Content */}

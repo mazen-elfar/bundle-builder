@@ -1,13 +1,13 @@
-import type { Variant } from "../../types/product";
-
 type VariantOptionProps = {
-  variant: Variant;
+  imageUrl: string;
+  name: string;
   selected: boolean;
   onSelect: () => void;
 };
 
 const VariantOption = ({
-  variant,
+  imageUrl,
+  name,
   selected,
   onSelect,
 }: VariantOptionProps) => {
@@ -38,8 +38,8 @@ const VariantOption = ({
       `}
     >
       <img
-        src={variant.image}
-        alt={variant.name}
+        src={imageUrl}
+        alt={name}
         draggable={false}
         className="
           w-[28px]
@@ -62,7 +62,7 @@ const VariantOption = ({
           text-[var(--color-text-primary)]
         "
       >
-        {variant.name}
+        {name}
       </span>
     </button>
   );
