@@ -5,7 +5,7 @@ type StepProps = {
   stepLabel: string;
   title: string;
   selectedText: string;
-  icon: React.ReactNode | null;
+  icon: string | null;
   isOpen: boolean;
   category: string;
   isLast: boolean;

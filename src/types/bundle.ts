@@ -17,5 +17,6 @@ export type BundleAction =
   | { type: "SELECT_VARIANT"; payload: { productId: string; variantId: string } }
   | { type: "INCREMENT_VARIANT"; payload: { productId: string; variantId: string } }
   | { type: "DECREMENT_VARIANT"; payload: { productId: string; variantId: string } }
+  | { type: "SELECT_PLAN"; payload: { productId: string } }
   | { type: "RESET" }
   | { type: "RESTORE"; payload: BundleState };

@@ -2,45 +2,24 @@ type AccordionHeaderProps = {
   stepLabel: string;
   title: string;
   selectedText: string;
-  icon: React.ReactNode | null;
+  icon: string | null;
   isOpen: boolean;
   onToggle: () => void;
 };
 
-const ChevronUp = () => (
-  <svg
-    width="10"
-    height="7"
-    viewBox="0 0 10 7"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M1 6L5 2L9 6"
-      stroke="#4E2FD2"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+import ChevronImg from "../../assets/icons-According/carrot-up.png";
 
-const ChevronDown = () => (
-  <svg
-    width="10"
-    height="7"
-    viewBox="0 0 10 7"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M1 1L5 5L9 1"
-      stroke="#4E2FD2"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
+const Chevron = ({ isOpen }: { isOpen: boolean }) => (
+  <img
+    src={ChevronImg}
+    alt=""
+    draggable={false}
+    className={`
+      h-[7px] w-[10px] select-none
+      transition-transform duration-200
+      ${isOpen ? "rotate-0" : "rotate-180"}
+    `}
+  />
 );
 
 const AccordionHeader = ({
@@ -51,8 +30,6 @@ const AccordionHeader = ({
   isOpen,
   onToggle,
 }: AccordionHeaderProps) => {
-  const Chevron = isOpen ? ChevronUp : ChevronDown;
-
   return (
     <header className="w-full flex flex-col gap-[5px]">
       {/* Step Label */}
@@ -87,7 +64,14 @@ const AccordionHeader = ({
         {/* Left */}
         <div className="flex flex-1 items-center gap-[8px] min-w-0">
           <div className="flex h-[27px] w-[26px] items-center justify-center">
-            {icon}
+            {icon && (
+              <img
+                src={icon}
+                alt=""
+                draggable={false}
+                className="max-h-full max-w-full select-none"
+              />
+            )}
           </div>
 
           <h2
@@ -107,12 +91,14 @@ const AccordionHeader = ({
 
         {/* Right */}
         <div className="flex shrink-0 items-center gap-[4px]">
-          <span className="text-[14px] font-normal leading-[16px] text-[#4E2FD2] max-sm:text-[12px]">
-            {selectedText}
-          </span>
+          {selectedText && (
+            <span className="text-[14px] font-normal leading-[16px] text-[#4E2FD2] max-sm:text-[12px]">
+              {selectedText}
+            </span>
+          )}
 
           <div className="flex h-[7px] w-[10px] items-center justify-center">
-            <Chevron />
+            <Chevron isOpen={isOpen} />
           </div>
         </div>
       </button>

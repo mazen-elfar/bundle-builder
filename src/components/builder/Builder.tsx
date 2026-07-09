@@ -10,7 +10,7 @@ const Builder = () => {
       {steps.map((step) => {
         const count = getSelectedCount(step.category);
         const selectedText =
-          count === 0 ? "None selected" : `${count} selected`;
+          count === 0 ? "" : `${count} selected`;
         const isOpen = state.currentStep === step.id;
 
         return (

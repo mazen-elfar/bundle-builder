@@ -85,6 +85,7 @@ const ReviewContent = () => {
               quantity={item.quantity}
               price={item.product.price}
               compareAtPrice={item.product.compareAtPrice}
+              category={group.category}
             />
           ))}
         </ReviewCategory>

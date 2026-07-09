@@ -1,28 +1,4 @@
-const TruckIcon = () => (
-  <svg
-    width="32"
-    height="32"
-    viewBox="0 0 32 32"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <rect width="32" height="32" rx="5" fill="#EEF4FF" />
-    <path
-      d="M8 12H20V21H8V12Z"
-      stroke="#0AA288"
-      strokeWidth="1.5"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M20 15H23L25 18V21H20V15Z"
-      stroke="#0AA288"
-      strokeWidth="1.5"
-      strokeLinejoin="round"
-    />
-    <circle cx="11" cy="22.5" r="1.5" stroke="#0AA288" strokeWidth="1.5" />
-    <circle cx="22" cy="22.5" r="1.5" stroke="#0AA288" strokeWidth="1.5" />
-  </svg>
-);
+import ShippingIcon from "../../assets/icons-According/carbon_delivery.png";
 
 const FastShippingRow = () => {
   return (
@@ -68,7 +44,12 @@ const FastShippingRow = () => {
             max-sm:w-[36px]
           "
         >
-          <TruckIcon />
+          <img
+            src={ShippingIcon}
+            alt=""
+            draggable={false}
+            className="h-full w-full object-contain select-none"
+          />
         </figure>
 
         {/* Content */}

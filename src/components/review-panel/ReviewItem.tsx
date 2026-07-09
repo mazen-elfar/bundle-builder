@@ -1,4 +1,6 @@
 import ReviewQuantityStepper from "../review-quantity-stepper/ReviewQuantityStepper";
+import ReviewPlanToggle from "./ReviewPlanToggle";
+import GroupImg from "../../assets/icons-According/Group.png";
 
 type ReviewItemProps = {
   productId: string;
@@ -9,6 +11,7 @@ type ReviewItemProps = {
   price: number;
   compareAtPrice?: number | null;
   suffix?: string;
+  category?: string;
 };
 
 const ReviewItem = ({
@@ -20,6 +23,7 @@ const ReviewItem = ({
   price,
   compareAtPrice,
   suffix,
+  category,
 }: ReviewItemProps) => {
   return (
     <article
@@ -54,6 +58,7 @@ const ReviewItem = ({
         {/* Image */}
         <figure
           className="
+            relative
             h-[41px]
             w-[41px]
             shrink-0
@@ -75,6 +80,17 @@ const ReviewItem = ({
               select-none
             "
           />
+
+          {category === "plan" && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <img
+                src={GroupImg}
+                alt=""
+                draggable={false}
+                className="max-h-full max-w-full select-none"
+              />
+            </div>
+          )}
         </figure>
 
         {/* Content */}
@@ -106,11 +122,15 @@ const ReviewItem = ({
             {title}
           </h4>
 
-          <ReviewQuantityStepper
-            productId={productId}
-            variantId={variantId}
-            quantity={quantity}
-          />
+          {category === "plan" ? (
+            <ReviewPlanToggle productId={productId} />
+          ) : (
+            <ReviewQuantityStepper
+              productId={productId}
+              variantId={variantId}
+              quantity={quantity}
+            />
+          )}
         </div>
       </div>
 

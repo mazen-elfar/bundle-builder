@@ -5,7 +5,9 @@ import ProductInfo from "./ProductInfo";
 import ProductPrice from "./ProductPrice";
 import ProductVariants from "../product-variants/ProductVariants";
 import QuantityStepper from "../quantity-stepper/QuantityStepper";
+import AddPlanButton from "../add-plan-button/AddPlanButton";
 import { useBundleContext } from "../../context/BundleContext";
+import GroupImg from "../../assets/icons-According/Group.png";
 
 type ProductCardProps = {
   product: Product;
@@ -80,8 +82,19 @@ const ProductCard = ({ product }: ProductCardProps) => {
           max-sm:w-[70px]
         "
       >
+        {product.category === "plan" && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center">
+            <img
+              src={GroupImg}
+              alt=""
+              draggable={false}
+              className="max-h-full max-w-full select-none"
+            />
+          </div>
+        )}
+
         {product.badge && (
-          <div className="absolute left-0 top-0 z-10">
+          <div className="absolute left-0 top-0 z-20">
             <Badge text={product.badge} />
           </div>
         )}
@@ -142,11 +155,15 @@ const ProductCard = ({ product }: ProductCardProps) => {
             justify-between
           "
         >
-          <QuantityStepper
-            quantity={currentQuantity}
-            onIncrease={handleIncrease}
-            onDecrease={handleDecrease}
-          />
+          {product.category === "plan" ? (
+            <AddPlanButton productId={product.id} />
+          ) : (
+            <QuantityStepper
+              quantity={currentQuantity}
+              onIncrease={handleIncrease}
+              onDecrease={handleDecrease}
+            />
+          )}
 
           <ProductPrice
             price={product.price}

@@ -91,6 +91,27 @@ export const bundleReducer = (
       };
     }
 
+    case "SELECT_PLAN": {
+      const { productId } = action.payload;
+      const existing = state.selections[productId];
+      if (!existing) return state;
+      const currentQty = existing.variantQuantities[productId] ?? 0;
+      const newQty = currentQty > 0 ? 0 : 1;
+
+      const updatedSelections = { ...state.selections };
+      for (const [id, sel] of Object.entries(updatedSelections)) {
+        const product = products.find((p) => p.id === id);
+        if (product?.category === "plan") {
+          updatedSelections[id] = {
+            ...sel,
+            variantQuantities: { [id]: id === productId ? newQty : 0 },
+          };
+        }
+      }
+
+      return { ...state, selections: updatedSelections };
+    }
+
     case "RESET":
       return initialState;
 

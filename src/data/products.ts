@@ -23,6 +23,8 @@ import sensorMotion from "../assets/images/822f111b8d7505688a09b4d01cc536f6f009a
 import sensorDoor from "../assets/images/c5d210d5bb593396f4f1f51b5f3538c79613ef44.png";
 import sensorLeak from "../assets/images/9f076fc4511198593abbc00cec845119c27f4406.png";
 
+import planImg from "../assets/icons-According/Vector.png";
+
 export const products: Product[] = [
   // ──────────────────────────────────────────
   // CAMERAS
@@ -178,7 +180,7 @@ export const products: Product[] = [
     category: "plan",
     name: "Cam Plus Lite",
     description: "Person detection and 12-second cloud recordings.",
-    image: wyzeCamV4,
+    image: planImg,
     badge: null,
     price: 1.99,
     compareAtPrice: null,
@@ -190,7 +192,7 @@ export const products: Product[] = [
     category: "plan",
     name: "Cam Plus",
     description: "Full-length cloud recordings with AI detection.",
-    image: wyzeCamV4,
+    image: planImg,
     badge: "Popular",
     price: 2.99,
     compareAtPrice: null,
@@ -202,7 +204,7 @@ export const products: Product[] = [
     category: "plan",
     name: "Cam Plus Pro",
     description: "Professional monitoring with priority support.",
-    image: wyzeCamV4,
+    image: planImg,
     badge: null,
     price: 7.99,
     compareAtPrice: null,
