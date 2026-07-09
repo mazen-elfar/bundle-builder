@@ -73,6 +73,18 @@
 
 ---
 
+## Demo
+
+### Live Demo
+
+[https://bundle-builder-three.vercel.app/](https://bundle-builder-three.vercel.app/)
+
+### GitHub Repository
+
+[https://github.com/mazen-elfar/bundle-builder](https://github.com/mazen-elfar/bundle-builder)
+
+---
+
 ## Tech Stack
 
 | Category | Technology |
@@ -198,6 +210,19 @@ All derived data (subtotal, review items, monthly payment, savings) is computed 
 
 ---
 
+## Design Decisions
+
+Several key decisions shaped the architecture and implementation:
+
+- **Data-driven architecture** — The product catalog and step definitions are sourced from local JSON data files, making it straightforward to add, remove, or reorder products and steps without touching any component logic.
+- **Per-variant quantity storage** — Quantities are stored independently for every product variant within the state, enabling granular tracking and preventing accidental cross-variant quantity merging.
+- **Unified state synchronization** — The Review Panel is fully synchronized with the Builder through React Context and `useReducer`. Any change in the builder immediately reflects in the review panel without additional wiring.
+- **Plan toggle instead of quantity stepper** — Subscription plans use a toggle switch rather than a quantity stepper because only one plan can be active at a time. This simplifies the UI and enforces mutual exclusion at the reducer level.
+- **LocalStorage persistence** — Bundle state is persisted to LocalStorage via the "Save my system for later" action, allowing users to return to their configuration across sessions.
+- **Reusable component architecture** — UI primitives (Badge, Button, Card, SectionTitle) and business components (QuantityStepper, ProductVariants, ReviewItem) are designed to be composable and maintainable, reducing duplication across the codebase.
+
+---
+
 ## Project Structure
 
 ```
@@ -273,9 +298,16 @@ Output is written to the `dist/` directory and can be served with any static fil
 
 ---
 
-## License
+## Notes
 
-Distributed under the MIT License. See `LICENSE` for more information.
+This project was built as part of a Frontend React Coding Exercise. Key highlights:
+
+- **Pixel-perfect implementation** based on the provided Figma design, with careful attention to spacing, typography, color tokens, and component states.
+- **Fully responsive** — Desktop (1440px) and mobile (390px) layouts with adaptive grid, typography, and spacing.
+- **Live synchronized review panel** — Every selection, quantity change, or plan toggle updates the review panel in real time without any manual refresh.
+- **Variant-specific quantity management** — Quantities are tracked per variant, enabling precise control over each product configuration.
+- **LocalStorage persistence** — Users can save their entire bundle configuration and restore it on return.
+- **Component-based architecture** — Reusable UI primitives and business components keep the codebase clean, maintainable, and scalable.
 
 ---
 
